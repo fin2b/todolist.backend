@@ -9,3 +9,4 @@ export default class User extends Sequelize.Model {
     }, {sequelize, modelName: 'user'})
   }
 }
+

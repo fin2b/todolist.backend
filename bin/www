@@ -4,10 +4,10 @@
  * Module dependencies.
  */
 
-const app = require('../app');
-const debug = require('debug')('vue-todolist.backend:server');
-const http = require('http');
-const initiateModel = require('../components/init.js');
+import app from '../app';
+import debug from 'debug';
+import http from 'http';
+import initiateModel from '../components/init.js';
 
 /**
  * Get port from environment and store in Express.
@@ -28,7 +28,7 @@ const server = http.createServer(app);
 
 server.on('error', onError);
 server.on('listening', onListening);
-initiateModel.default().then(() => server.listen(port));
+initiateModel().then(() => server.listen(port));
 
 /**
  * Normalize a port into a number, string, or false.
@@ -87,5 +87,5 @@ function onListening() {
   const bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  debug('vue-todolist.backend:server')('Listening on ' + bind);
 }
