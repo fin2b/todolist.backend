@@ -8,6 +8,14 @@ async function retrieveAll() {
   }
 }
 
+async function retrieve() {
+  try {
+    return await projectComponent.retrieve();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 async function create(options) {
   try {
     return await projectComponent.createTitle(options);
@@ -28,6 +36,7 @@ async function update(options) {
 
 export default {
   retrieveAll,
+  retrieve,
   create,
   update
 }

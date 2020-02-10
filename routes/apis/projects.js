@@ -5,9 +5,19 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next) => {
-  projectService.retrieveAll().then(projects => {
+  projectService.retrieveAll()
+    .then(projects => {
     res.json(projects);
   }).catch(next);
+});
+
+router.get('/:id', (req, res, next) => {
+  const {id} = req.params;
+  projectService.retrieve(id)
+    .then(project => {
+      res.status(200);
+      res.json(project);
+    }).catch(next);
 });
 
 router.post('/', (req, res, next) => {

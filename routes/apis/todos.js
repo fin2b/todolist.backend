@@ -4,23 +4,27 @@ const router = express.Router();
 
 router.get('/:id', (req, res, next) => {
   const projectId = req.params.id;
-  todoService.retrieveAll(projectId)
-    .then(todos => console.log(todos))
+  todoService.retrieveAll({projectId})
+    .then(todos => res.json(todos))
     .catch(next);
 });
 
 router.post('/', (req, res, next) => {
   const {title, projectId} = req.body;
   todoService.create({title, projectId})
-    .then(() => console.log('create'))
-    .catch(next);
+    .then(() => {
+      res.status(200);
+      res.end();
+    }).catch(next);
 });
 
 router.put('/', (req, res, next) => {
-  const {description, projectId} = req.body;
-  todoService.update({description, projectId})
-    .then(() => console.log('update'))
-    .catch(next);
+  const {description, todoId} = req.body;
+  todoService.update({description, todoId})
+    .then(() => {
+      res.status(200);
+      res.end();
+    }).catch(next);
 });
 
 router.delete('/', (req, res, next) => {

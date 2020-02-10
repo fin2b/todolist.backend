@@ -9,12 +9,12 @@ function retrieve(options) {
 }
 
 function create(options) {
-  return Todo.create({title: options.title, description: options.description, projectId: options.projectId});
+  return Todo.create({title: options.title, projectId: options.projectId});
 }
 
 function update(options) {
-  return Todo.findOne({where: {id: options.id}})
-    .then(todo => todo.update({title: options.title, description: options.description}));
+  return Todo.findOne({where: {id: options.todoId}})
+    .then(todo => todo.update({description: options.description}));
 }
 
 function remove(options) {
