@@ -2,9 +2,7 @@ import todoComponent from "../components/todoComponent";
 
 async function retrieveAll(options) {
   try {
-    const result = await todoComponent.retrieveAll(options);
-    console.log(result);
-    return result;
+    return await todoComponent.retrieveAll(options);
   } catch (e) {
     console.log(e);
   }
@@ -20,9 +18,7 @@ async function create(options) {
 
 async function update(options) {
   try {
-    const result = await todoComponent.update(options);
-    console.log(result);
-    return result;
+    return await todoComponent.update(options);
   } catch (e) {
     console.log(e);
   }
@@ -30,9 +26,7 @@ async function update(options) {
 
 async function remove(options) {
   try {
-    const result = await todoComponent.remove(options);
-    console.log(result);
-    return result;
+    return await todoComponent.remove(options);
   } catch (e) {
     console.log(e);
   }

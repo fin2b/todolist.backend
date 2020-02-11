@@ -26,9 +26,7 @@ async function create(options) {
 
 async function update(options) {
   try {
-    const result = await projectComponent.update(options);
-    console.log(result);
-    return result;
+    return await projectComponent.update(options);
   } catch (e) {
     console.log(e);
   }

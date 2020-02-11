@@ -30,7 +30,10 @@ router.put('/', (req, res, next) => {
 router.delete('/', (req, res, next) => {
   const {id} = req.body;
   todoService.remove({id})
-    .then(() => console.log('remove'))
+    .then(() => {
+      res.status(200);
+      res.end();
+    })
     .catch(next);
 });
 
